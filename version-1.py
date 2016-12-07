@@ -8,7 +8,7 @@ import numpy as np
 import urllib
 
 # url to dataset
-url = "https://archive.ics.uci.edu/ml/machine-learning-databases/letter-recognition/letter-recognition.data"
+url = "/Users/anthony/Desktop/letter-recognition.data"
 
 # open url and store in raw_data
 raw_data = urllib.urlopen(url)
@@ -41,7 +41,7 @@ GammaValue = [.01, 0.1, 0.5]
 for x, element in enumerate(DataSets):
     for y, elements in enumerate(DataSets):
         for testval in GammaValue:
-
+            print"Testing training set: %d to sample set: %d" %(x,y)
             clf = svm.SVC(kernel = 'linear',gamma = testval)
             print clf.fit(element,LabelSets[x].ravel())
             Matrix = [[0 for i in range(26)] for j in range(26)]
@@ -92,14 +92,6 @@ for x, element in enumerate(DataSets):
             print "We made " + str(correct) + " correct predictions"
 
 
-
-# Iterate through all of the elements in the testing data
-false = 0
-correct = 0
-
-a = b = c = d = e = f = g = h = ic = j = k = l = m = n = o = p = q = r = s = t = u = v = w = x = y = z = 0
-
-
             clf = svm.SVC(kernel = 'rbf',gamma = testval)
             print clf.fit(element,LabelSets[x].ravel())
             Matrix = [[0 for i in range(26)] for j in range(26)]
@@ -128,6 +120,10 @@ a = b = c = d = e = f = g = h = ic = j = k = l = m = n = o = p = q = r = s = t =
 
 
 '''
+a = b = c = d = e = f = g = h = ic = j = k = l = m = n = o = p = q = r = s = t = u = v = w = x = y = z = 0
+# Iterate through all of the elements in the testing data
+false = 0
+correct = 0
 for i in range(len(labels)):
 
     # if the prediction doesnt equal the actual label then it is false
